@@ -170,7 +170,7 @@ export default async function IndexPage() {
               <div>
                 <h4 className="font-bold text-7xl">$9</h4>
                 <p className="text-sm font-medium text-muted-foreground">
-                  Billed Monthly. Cancel Anytime.
+                  $0.30 Per Day. Billed Monthly. Cancel Anytime.
                 </p>
               </div>
               <Link
@@ -183,12 +183,10 @@ export default async function IndexPage() {
           </div>
           <div className="grid w-full items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]">
             <div className="grid gap-6">
-              <h3 className="text-xl font-bold sm:text-2xl">
-                What&apos;s included in the FREE trial
-              </h3>
+              <h3 className="text-xl font-bold sm:text-2xl">Pro Annual</h3>
               <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
                 <li className="flex items-center">
-                  <Icons.check className="w-4 h-4 mr-2" /> 30 Day Free Trial
+                  <Icons.check className="w-4 h-4 mr-2" /> Save 16% with Annual
                 </li>
                 <li className="flex items-center">
                   <Icons.check className="w-4 h-4 mr-2" /> Unlimited Program
@@ -198,15 +196,24 @@ export default async function IndexPage() {
                   <Icons.check className="w-4 h-4 mr-2" /> Unlimited Workouts
                 </li>
                 <li className="flex items-center">
+                  <Icons.check className="w-4 h-4 mr-2" /> Custom User Profile
+                </li>
+                <li className="flex items-center">
+                  <Icons.check className="w-4 h-4 mr-2" /> Dashboard Analytics
+                </li>
+                <li className="flex items-center">
                   <Icons.check className="w-4 h-4 mr-2" /> Access to Discord
+                </li>
+                <li className="flex items-center">
+                  <Icons.check className="w-4 h-4 mr-2" /> Premium Support
                 </li>
               </ul>
             </div>
             <div className="flex flex-col gap-4 text-center">
               <div>
-                <h4 className="font-bold text-7xl">$0</h4>
+                <h4 className="font-bold text-7xl">$90</h4>
                 <p className="text-sm font-medium text-muted-foreground">
-                  Free!
+                  $0.25 Per Day. Billed Annually. Cancel Anytime.
                 </p>
               </div>
               <Link
