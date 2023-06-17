@@ -21,15 +21,6 @@ export default async function Wod() {
     .select('username, full_name')
     .eq('id', userId);
 
-  const name = profile?.[0]?.full_name || profile?.[0].username || '';
-
-  // user dash
-  // get user
-  // active program?
-  // display profile card
-  // browse programs / view active program card
-  // learn / training knowledge base
-
   return (
     <div>
       <div className="pb-2">

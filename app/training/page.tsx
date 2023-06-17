@@ -10,8 +10,6 @@ export default async function Wod() {
     cookies
   });
 
-  const date = await getDate();
-
   const subscription = await getSubscription();
   const session = await getSession();
   const userId = session?.user.id;
@@ -20,18 +18,11 @@ export default async function Wod() {
     .select('username, full_name')
     .eq('id', userId);
 
-  const name = profile?.[0]?.full_name || profile?.[0].username || '';
-
-  // user dash
-  // get user
-  // active program?
-  // display profile card
-  // browse programs / view active program card
-  // learn / training knowledge base
-
   return (
     <div>
-      <p>hello</p>
+      <div className="pb-2">
+        <DashboardHeader heading="Training" text="View Your Workouts" />
+      </div>
     </div>
   );
 }
