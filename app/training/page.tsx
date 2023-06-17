@@ -1,6 +1,5 @@
 import { getSession, getSubscription } from '@/app/supabase-server';
 import { DashboardHeader } from '@/components/header';
-import { getDate } from '@/utils/helpers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';

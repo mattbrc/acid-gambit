@@ -19,8 +19,6 @@ export default async function Dashboard() {
     .select('username, full_name')
     .eq('id', userId);
 
-  const name = profile?.[0]?.full_name || profile?.[0].username || '';
-
   // user dash
   // get user
   // active program?
@@ -30,10 +28,14 @@ export default async function Dashboard() {
 
   return (
     <div>
-      <DashboardHeader heading="Training Dashboard" text={`Welcome ${name}`} />
-      <pre>{JSON.stringify(userId, null, 2)}</pre>
+      <DashboardHeader heading="Home" text="Your training home." />
+      <pre>{JSON.stringify(session, null, 2)}</pre>
       <pre>{JSON.stringify(subscription?.status, null, 2)}</pre>
       <UserCard />
+      <p>Start a training program</p>
+      <p>Learn</p>
+      <p>Training Resources</p>
+      <p>Workout of the Day</p>
     </div>
   );
 }

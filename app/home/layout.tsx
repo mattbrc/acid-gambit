@@ -1,7 +1,8 @@
-import { getSession } from '../supabase-server';
+import { getSession, getUserDetails } from '../supabase-server';
 import { MainNav } from '@/components/main-nav';
 import SignOutButton from '@/components/sign-out-button';
 import { SiteFooter } from '@/components/site-footer';
+import { UserNav } from '@/components/user-nav';
 import { redirect } from 'next/navigation';
 
 // import { UserAccountNav } from "@/components/user-account-nav";
@@ -20,6 +21,7 @@ export default async function DashboardLayout({
   // }
 
   const session = await getSession();
+  const user = await getUserDetails();
 
   if (!session) {
     redirect('/login');
@@ -37,9 +39,13 @@ export default async function DashboardLayout({
               email: user.email,
             }}
           /> */}
-          <nav>
+          <UserNav
+            name={user?.full_name || null}
+            email={session?.user.email || ''}
+          />
+          {/* <nav>
             <SignOutButton />
-          </nav>
+          </nav> */}
         </div>
       </header>
       <div className="container grid flex-1">
