@@ -44,3 +44,24 @@ export const toDateTime = (secs: number) => {
   t.setSeconds(secs);
   return t;
 };
+
+export const getDate = async () => {
+  const currentDay = new Date().getDate();
+  const nameMonth = new Intl.DateTimeFormat('en-US', {
+    month: 'short'
+  }).format(new Date());
+  const weekday = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+  ];
+
+  const d = new Date();
+  let day = weekday[d.getDay()];
+  const currentDate = day + ', ' + nameMonth + ' ' + currentDay;
+  return currentDate;
+}
