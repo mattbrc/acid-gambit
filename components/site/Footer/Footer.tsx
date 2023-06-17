@@ -1,7 +1,6 @@
+import { Logo } from '@/components/icons';
+import { GitHub } from '@/components/icons';
 import Link from 'next/link';
-
-import Logo from '@/components/icons/Logo';
-import GitHub from '@/components/icons/GitHub';
 
 export default function Footer() {
   return (
