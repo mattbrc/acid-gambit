@@ -1,4 +1,5 @@
 import { Icons } from '@/components/icons';
+import { MainNav } from '@/components/main-nav';
 // import { MainNav } from "@/components/main-nav";
 import { SiteFooter } from '@/components/site-footer';
 import { buttonVariants } from '@/components/ui/button';
@@ -10,6 +11,7 @@ export default async function IndexPage() {
     <div className="flex flex-col min-h-screen">
       <header className="container z-40 bg-background">
         <div className="flex items-center justify-between h-20 py-6">
+          <MainNav />
           <nav>
             <Link
               href="/login"
