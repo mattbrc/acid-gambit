@@ -1,73 +1,10 @@
-// import SupabaseProvider from './supabase-provider';
-// import Footer from '@/components/site/Footer';
-// import Navbar from '@/components/site/Navbar';
-// import { PropsWithChildren } from 'react';
-// import 'styles/main.css';
-
-// const meta = {
-//   title: 'Next.js Subscription Starter',
-//   description: 'Brought to you by Vercel, Stripe, and Supabase.',
-//   cardImage: '/og.png',
-//   robots: 'follow, index',
-//   favicon: '/favicon.ico',
-//   url: 'https://subscription-starter.vercel.app',
-//   type: 'website'
-// };
-
-// export const metadata = {
-//   title: meta.title,
-//   description: meta.description,
-//   cardImage: meta.cardImage,
-//   robots: meta.robots,
-//   favicon: meta.favicon,
-//   url: meta.url,
-//   type: meta.type,
-//   openGraph: {
-//     url: meta.url,
-//     title: meta.title,
-//     description: meta.description,
-//     cardImage: meta.cardImage,
-//     type: meta.type,
-//     site_name: meta.title
-//   },
-//   twitter: {
-//     card: 'summary_large_image',
-//     site: '@vercel',
-//     title: meta.title,
-//     description: meta.description,
-//     cardImage: meta.cardImage
-//   }
-// };
-
-// export default function RootLayout({
-//   // Layouts must accept a children prop.
-//   // This will be populated with nested layouts or pages
-//   children
-// }: PropsWithChildren) {
-//   return (
-//     <html lang="en">
-//       <body className="bg-black loading">
-//         <SupabaseProvider>
-//           <Navbar />
-//           <main
-//             id="skip"
-//             className="min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]"
-//           >
-//             {children}
-//           </main>
-//           <Footer />
-//         </SupabaseProvider>
-//       </body>
-//     </html>
-//   );
-// }
-
 import './globals.css';
 import SupabaseProvider from './supabase-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { Inter as FontSans } from 'next/font/google';
 import localFont from 'next/font/local';
+import Head from 'next/head';
 
 // import { PropsWithChildren } from 'react';
 
@@ -84,9 +21,39 @@ const fontHeading = localFont({
   variable: '--font-heading'
 });
 
-export const metadata = {
+const meta = {
   title: 'Gambit Training App',
-  description: 'By ACID GAMBIT'
+  description: 'By Acid Gambit',
+  cardImage: '/og.png',
+  robots: 'follow, index',
+  favicon: '/favicon.ico',
+  url: 'https://app.acidgambit.com',
+  type: 'website'
+};
+
+export const metadata = {
+  title: meta.title,
+  description: meta.description,
+  // cardImage: meta.cardImage,
+  robots: meta.robots,
+  favicon: meta.favicon,
+  url: meta.url,
+  type: meta.type,
+  openGraph: {
+    url: meta.url,
+    title: meta.title,
+    description: meta.description,
+    // cardImage: meta.cardImage,
+    type: meta.type,
+    site_name: meta.title
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@vercel',
+    title: meta.title,
+    description: meta.description
+    // cardImage: meta.cardImage
+  }
 };
 
 export default function RootLayout({
@@ -96,6 +63,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+      </Head>
       <body
         className={cn(
           'bg-background font-sans antialiased min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]',

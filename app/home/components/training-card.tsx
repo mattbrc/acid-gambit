@@ -28,7 +28,11 @@ export function TrainingCard({ program }: UserCardProps) {
         </CardHeader>
         <CardContent className="grid gap-4">
           <div>
-            {program !== null ? <p>{program}</p> : <p>No current program.</p>}
+            {program !== null ? (
+              <p>Current Program: {program}</p>
+            ) : (
+              <p>No current program.</p>
+            )}
           </div>
         </CardContent>
         <CardFooter>
