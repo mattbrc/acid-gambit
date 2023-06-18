@@ -4,7 +4,7 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
-export default async function Nutrition() {
+export default async function Billing() {
   const supabase = createServerComponentClient({
     cookies
   });
@@ -21,8 +21,8 @@ export default async function Nutrition() {
     <div>
       <div className="pb-2">
         <DashboardHeader
-          heading="Nutrition"
-          text="View your nutrition goals."
+          heading="Billing"
+          text="Manage billing and your subscription plan."
         />
       </div>
     </div>

@@ -20,7 +20,7 @@ export default async function Wod() {
   return (
     <div>
       <div className="pb-2">
-        <DashboardHeader heading="Training" text="View Your Workouts" />
+        <DashboardHeader heading="Training" text="Start/View your programs." />
       </div>
     </div>
   );

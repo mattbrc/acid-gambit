@@ -34,6 +34,7 @@ export default async function Dashboard() {
       <UserCard
         name={user?.full_name || null}
         email={session?.user.email || ''}
+        workouts={69}
       />
       <TrainingCard program={user?.current_program || null} />
       <LearnCard />

@@ -5,8 +5,6 @@ import {
   Home,
   LogOut,
   Pizza,
-  PlusCircle,
-  Settings,
   User
 } from 'lucide-react';
 
@@ -56,37 +54,47 @@ export function UserNav({ name, email }: UserNavProps) {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem>
-            <Home className="w-4 h-4 mr-2" />
-            <Link href="/home">Home</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Dumbbell className="w-4 h-4 mr-2" />
-            <Link href="/dashboard">Training Dashboard</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <GraduationCap className="w-4 h-4 mr-2" />
-            {/* <Link href="https://guide.acidgambit.com">Learn</Link> */}
-            <a
-              href="https://guide.acidgambit.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <Link href="/home">
+            <DropdownMenuItem>
+              <Home className="w-4 h-4 mr-2" />
+              <span>Home</span>
+            </DropdownMenuItem>
+          </Link>
+          <Link href="/training">
+            <DropdownMenuItem>
+              <Dumbbell className="w-4 h-4 mr-2" />
+              <span>Training Dashboard</span>
+            </DropdownMenuItem>
+          </Link>
+          <a
+            href="https://guide.acidgambit.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <DropdownMenuItem>
+              <GraduationCap className="w-4 h-4 mr-2" />
+              {/* <Link href="https://guide.acidgambit.com">Learn</Link> */}
               Learn
-            </a>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Pizza className="w-4 h-4 mr-2" />
-            <Link href="/nutrition">Nutrition</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <User className="w-4 h-4 mr-2" />
-            <Link href="/account">Profile</Link>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            <CreditCard className="w-4 h-4 mr-2" />
-            <span>Billing</span>
-          </DropdownMenuItem>
+            </DropdownMenuItem>
+          </a>
+          <Link href="/nutrition">
+            <DropdownMenuItem>
+              <Pizza className="w-4 h-4 mr-2" />
+              <span>Nutrition</span>
+            </DropdownMenuItem>
+          </Link>
+          <Link href="/account">
+            <DropdownMenuItem>
+              <User className="w-4 h-4 mr-2" />
+              <span>Profile</span>
+            </DropdownMenuItem>
+          </Link>
+          <Link href="/billing">
+            <DropdownMenuItem>
+              <CreditCard className="w-4 h-4 mr-2" />
+              <span>Billing</span>
+            </DropdownMenuItem>
+          </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>

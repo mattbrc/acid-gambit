@@ -8,7 +8,9 @@ interface DashboardLayoutProps {
   children?: React.ReactNode;
 }
 
-export default async function HomeLayout({ children }: DashboardLayoutProps) {
+export default async function BillingLayout({
+  children
+}: DashboardLayoutProps) {
   const session = await getSession();
   const user = await getUserDetails();
 

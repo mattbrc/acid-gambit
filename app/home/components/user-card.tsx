@@ -22,9 +22,10 @@ import { Circle, Dumbbell, Star } from 'lucide-react';
 interface UserCardProps {
   name: string | null;
   email: string;
+  workouts: number;
 }
 
-export function UserCard({ name, email }: UserCardProps) {
+export function UserCard({ name, email, workouts }: UserCardProps) {
   return (
     <div className="pt-2 pb-2">
       <Card>
@@ -61,11 +62,7 @@ export function UserCard({ name, email }: UserCardProps) {
             </div>
             <div className="flex items-center">
               <Dumbbell className="w-3 h-3 mr-1" />
-              69 workouts completed
-            </div>
-            <div className="flex items-center">
-              <Star className="w-3 h-3 mr-1" />
-              Member Since April 2023
+              {workouts} workouts completed
             </div>
           </div>
         </CardContent>

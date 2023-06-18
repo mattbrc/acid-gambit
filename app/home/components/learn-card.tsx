@@ -23,7 +23,14 @@ export function LearnCard() {
         </CardHeader>
 
         <CardFooter>
-          <Button className="w-full">Training Resources</Button>
+          <a
+            href="https://guide.acidgambit.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full"
+          >
+            <Button className="w-full">Training Resources</Button>
+          </a>
         </CardFooter>
       </Card>
     </div>

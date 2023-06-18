@@ -12,6 +12,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Icons } from '@/components/icons';
+import Link from 'next/link';
 
 interface UserCardProps {
   program: string | null;
@@ -31,7 +32,9 @@ export function TrainingCard({ program }: UserCardProps) {
           </div>
         </CardContent>
         <CardFooter>
-          <Button className="w-full">Training Dashboard</Button>
+          <Link className="w-full" href="/training">
+            <Button className="w-full">Training Dashboard</Button>
+          </Link>
         </CardFooter>
       </Card>
     </div>

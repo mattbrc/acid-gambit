@@ -182,7 +182,7 @@ export default async function IndexPage() {
               </Link>
             </div>
           </div>
-          <div className="grid w-full items-start gap-10 rounded-lg border border-2 border-emerald-400 p-10 md:grid-cols-[1fr_200px]">
+          <div className="grid w-full items-start gap-10 rounded-lg border-2 border-emerald-400 p-10 md:grid-cols-[1fr_200px]">
             <div className="grid gap-6">
               <h3 className="text-xl font-bold sm:text-2xl">
                 What&apos;s included in the PRO plan
