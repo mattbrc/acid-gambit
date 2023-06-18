@@ -139,7 +139,50 @@ export default async function IndexPage() {
               Unlock all features including unlimited workouts.
             </p>
           </div>
-          <div className="grid w-full items-start gap-10 rounded-lg border border-emerald-400 p-10 md:grid-cols-[1fr_200px]">
+          <div className="grid w-full items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]">
+            <div className="grid gap-6">
+              <h3 className="text-xl font-bold sm:text-2xl">Pro Annual</h3>
+              <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
+                <li className="flex items-center">
+                  <Icons.check className="w-4 h-4 mr-2" /> Save 17% with Annual
+                </li>
+                <li className="flex items-center">
+                  <Icons.check className="w-4 h-4 mr-2" /> Unlimited Program
+                  Access
+                </li>
+                <li className="flex items-center">
+                  <Icons.check className="w-4 h-4 mr-2" /> Unlimited Workouts
+                </li>
+                <li className="flex items-center">
+                  <Icons.check className="w-4 h-4 mr-2" /> Custom User Profile
+                </li>
+                <li className="flex items-center">
+                  <Icons.check className="w-4 h-4 mr-2" /> Dashboard Analytics
+                </li>
+                <li className="flex items-center">
+                  <Icons.check className="w-4 h-4 mr-2" /> Access to Discord
+                </li>
+                <li className="flex items-center">
+                  <Icons.check className="w-4 h-4 mr-2" /> Premium Support
+                </li>
+              </ul>
+            </div>
+            <div className="flex flex-col gap-4 text-center">
+              <div>
+                <h4 className="font-bold text-7xl">$100</h4>
+                <p className="text-sm font-medium text-muted-foreground">
+                  $0.27 Per Day. Billed Annually. Cancel Anytime.
+                </p>
+              </div>
+              <Link
+                href="/login"
+                className={cn(buttonVariants({ size: 'lg', variant: 'ag' }))}
+              >
+                Start Training
+              </Link>
+            </div>
+          </div>
+          <div className="grid w-full items-start gap-10 rounded-lg border border-2 border-emerald-400 p-10 md:grid-cols-[1fr_200px]">
             <div className="grid gap-6">
               <h3 className="text-xl font-bold sm:text-2xl">
                 What&apos;s included in the PRO plan
@@ -168,9 +211,9 @@ export default async function IndexPage() {
             </div>
             <div className="flex flex-col gap-4 text-center">
               <div>
-                <h4 className="font-bold text-7xl">$9</h4>
+                <h4 className="font-bold text-7xl">$10</h4>
                 <p className="text-sm font-medium text-muted-foreground">
-                  $0.30 Per Day. Billed Monthly. Cancel Anytime.
+                  $0.33 Per Day. Billed Monthly. Cancel Anytime.
                 </p>
               </div>
               <Link
@@ -181,39 +224,33 @@ export default async function IndexPage() {
               </Link>
             </div>
           </div>
+
           <div className="grid w-full items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]">
             <div className="grid gap-6">
-              <h3 className="text-xl font-bold sm:text-2xl">Pro Annual</h3>
+              <h3 className="text-xl font-bold sm:text-2xl">Free Membership</h3>
               <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
                 <li className="flex items-center">
-                  <Icons.check className="w-4 h-4 mr-2" /> Save 16% with Annual
-                </li>
-                <li className="flex items-center">
-                  <Icons.check className="w-4 h-4 mr-2" /> Unlimited Program
-                  Access
-                </li>
-                <li className="flex items-center">
-                  <Icons.check className="w-4 h-4 mr-2" /> Unlimited Workouts
+                  <Icons.check className="w-4 h-4 mr-2" /> Workouts of the Day
                 </li>
                 <li className="flex items-center">
                   <Icons.check className="w-4 h-4 mr-2" /> Custom User Profile
                 </li>
                 <li className="flex items-center">
-                  <Icons.check className="w-4 h-4 mr-2" /> Dashboard Analytics
+                  <Icons.check className="w-4 h-4 mr-2" /> Training Guide
                 </li>
                 <li className="flex items-center">
                   <Icons.check className="w-4 h-4 mr-2" /> Access to Discord
                 </li>
                 <li className="flex items-center">
-                  <Icons.check className="w-4 h-4 mr-2" /> Premium Support
+                  <Icons.check className="w-4 h-4 mr-2" /> Nutrition Calculator
                 </li>
               </ul>
             </div>
             <div className="flex flex-col gap-4 text-center">
               <div>
-                <h4 className="font-bold text-7xl">$90</h4>
+                <h4 className="font-bold text-7xl">$0</h4>
                 <p className="text-sm font-medium text-muted-foreground">
-                  $0.25 Per Day. Billed Annually. Cancel Anytime.
+                  Free!
                 </p>
               </div>
               <Link

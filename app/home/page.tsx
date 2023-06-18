@@ -1,5 +1,4 @@
-import { UserCard } from './user-card';
-import UserDashboard from './user-dashboard';
+import { UserCard } from './components/user-card';
 import {
   getSession,
   getSubscription,
@@ -9,6 +8,9 @@ import { DashboardHeader } from '@/components/header';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { TrainingCard } from './components/training-card';
+import { LearnCard } from './components/learn-card';
+import { WodCard } from './components/wod-card';
 
 export default async function Dashboard() {
   const supabase = createServerComponentClient({
@@ -20,7 +22,7 @@ export default async function Dashboard() {
   const user = await getUserDetails();
   const { data: profile } = await supabase
     .from('profiles')
-    .select('username, full_name')
+    .select('username, full_name, current_program')
     .eq('id', user?.id);
 
   return (
@@ -33,10 +35,9 @@ export default async function Dashboard() {
         name={user?.full_name || null}
         email={session?.user.email || ''}
       />
-      <p>Start a training program</p>
-      <p>Learn</p>
-      <p>Training Resources</p>
-      <p>Workout of the Day</p>
+      <TrainingCard program={user?.current_program || null} />
+      <LearnCard />
+      <WodCard />
     </div>
   );
 }

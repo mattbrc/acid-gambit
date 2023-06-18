@@ -31,6 +31,24 @@ export interface Database {
           }
         ]
       }
+      gated_content: {
+        Row: {
+          created_at: string | null
+          id: number
+          workout: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: number
+          workout?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: number
+          workout?: string | null
+        }
+        Relationships: []
+      }
       prices: {
         Row: {
           active: boolean | null
@@ -178,6 +196,7 @@ export interface Database {
         Row: {
           avatar_url: string | null
           billing_address: Json | null
+          current_program: string | null
           full_name: string | null
           id: string
           payment_method: Json | null
@@ -185,6 +204,7 @@ export interface Database {
         Insert: {
           avatar_url?: string | null
           billing_address?: Json | null
+          current_program?: string | null
           full_name?: string | null
           id: string
           payment_method?: Json | null
@@ -192,6 +212,7 @@ export interface Database {
         Update: {
           avatar_url?: string | null
           billing_address?: Json | null
+          current_program?: string | null
           full_name?: string | null
           id?: string
           payment_method?: Json | null

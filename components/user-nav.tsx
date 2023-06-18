@@ -66,7 +66,14 @@ export function UserNav({ name, email }: UserNavProps) {
           </DropdownMenuItem>
           <DropdownMenuItem>
             <GraduationCap className="w-4 h-4 mr-2" />
-            <Link href="https://guide.acidgambit.com">Learn</Link>
+            {/* <Link href="https://guide.acidgambit.com">Learn</Link> */}
+            <a
+              href="https://guide.acidgambit.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Learn
+            </a>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <Pizza className="w-4 h-4 mr-2" />
@@ -74,7 +81,7 @@ export function UserNav({ name, email }: UserNavProps) {
           </DropdownMenuItem>
           <DropdownMenuItem>
             <User className="w-4 h-4 mr-2" />
-            <Link href="/account">Account</Link>
+            <Link href="/account">Profile</Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <CreditCard className="w-4 h-4 mr-2" />

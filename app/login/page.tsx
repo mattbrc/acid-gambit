@@ -22,7 +22,7 @@ export default async function LoginPage() {
   } = await supabase.auth.getSession();
 
   if (session) {
-    redirect('/dashboard');
+    redirect('/home');
   }
 
   return (
