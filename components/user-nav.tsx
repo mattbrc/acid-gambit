@@ -83,7 +83,7 @@ export function UserNav({ name, email }: UserNavProps) {
               <span>Nutrition</span>
             </DropdownMenuItem>
           </Link>
-          <Link href="/account">
+          <Link href="/profile">
             <DropdownMenuItem>
               <User className="w-4 h-4 mr-2" />
               <span>Profile</span>
