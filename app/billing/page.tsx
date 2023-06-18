@@ -5,13 +5,19 @@ import {
 } from '@/app/supabase-server';
 import { DashboardHeader } from '@/components/header';
 import { DashboardShell } from '@/components/shell';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
 import ManageSubscriptionButton from './manage-subscription-button';
 import Link from 'next/link';
-import { BillingForm } from './billing-form';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 export default async function Billing() {
   const [session, userDetails, subscription] = await Promise.all([
@@ -41,14 +47,8 @@ export default async function Billing() {
         text="Manage billing and your subscription plan."
       />
       <div className="grid gap-8">
-        {/* <BillingForm
-          subscriptionPlan={{
-            ...subscriptionPlan,
-            isCanceled
-          }}
-        /> */}
-        <div className="p-4">
-          <BillingForm
+        <div>
+          <BillingCard
             title="Your Plan"
             description={
               subscription
@@ -57,14 +57,12 @@ export default async function Billing() {
             }
             footer={<ManageSubscriptionButton session={session} />}
           >
-            {/* <div className="mt-8 mb-4 text-xl font-semibold">
-              {subscription ? (
-                `${subscriptionPrice}/${subscription?.prices?.interval}`
-              ) : (
-                <Link href="/">Choose your plan</Link>
-              )}
-            </div>*/}
-          </BillingForm>
+            {subscription ? (
+              `${subscriptionPrice}/${subscription?.prices?.interval}`
+            ) : (
+              <Link href="/">Choose your plan</Link>
+            )}
+          </BillingCard>
         </div>
       </div>
     </DashboardShell>
@@ -78,17 +76,19 @@ interface Props {
   children: ReactNode;
 }
 
-function Card({ title, description, footer, children }: Props) {
+function BillingCard({ title, description, footer, children }: Props) {
   return (
-    <div className="w-full max-w-3xl m-auto my-8 border rounded-md p border-zinc-700">
-      <div className="px-5 py-4">
-        <h3 className="mb-1 text-2xl font-medium">{title}</h3>
-        <p className="text-zinc-300">{description}</p>
-        {children}
-      </div>
-      <div className="p-4 border-t rounded-b-md border-zinc-700 bg-zinc-900 text-zinc-500">
-        {footer}
-      </div>
+    <div>
+      <Card>
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{description}</CardDescription>
+          <CardDescription className="font-bold">{children}</CardDescription>
+        </CardHeader>
+        <CardFooter className="flex flex-col items-start space-y-2 md:flex-row md:justify-between md:space-x-0">
+          {footer}
+        </CardFooter>
+      </Card>
     </div>
   );
 }

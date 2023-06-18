@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       if (!customer) throw Error('Could not get customer');
       const { url } = await stripe.billingPortal.sessions.create({
         customer,
-        return_url: `${getURL()}/account`
+        return_url: `${getURL()}/billing`
       });
       return new Response(JSON.stringify({ url }), {
         status: 200
