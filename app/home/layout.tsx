@@ -32,20 +32,10 @@ export default async function DashboardLayout({
       <header className="sticky top-0 z-40 border-b bg-background">
         <div className="container flex items-center justify-between h-16 py-4">
           <MainNav />
-          {/* <UserAccountNav
-            user={{
-              name: user.name,
-              image: user.image,
-              email: user.email,
-            }}
-          /> */}
           <UserNav
             name={user?.full_name || null}
             email={session?.user.email || ''}
           />
-          {/* <nav>
-            <SignOutButton />
-          </nav> */}
         </div>
       </header>
       <div className="container grid flex-1">

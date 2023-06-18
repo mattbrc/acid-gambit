@@ -18,7 +18,6 @@ export default function SignOutButton() {
             router.refresh();
             router.push('/login');
           }}
-          className={cn(buttonVariants({ variant: 'secondary', size: 'sm' }))}
           type="submit"
         >
           Sign Out

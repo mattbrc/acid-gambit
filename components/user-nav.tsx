@@ -23,6 +23,7 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
+import SignOutButton from './sign-out-button';
 
 interface UserNavProps {
   name: string | null;
@@ -83,7 +84,7 @@ export function UserNav({ name, email }: UserNavProps) {
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <LogOut className="w-4 h-4 mr-2" />
-          <span>Sign Out</span>
+          <SignOutButton />
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

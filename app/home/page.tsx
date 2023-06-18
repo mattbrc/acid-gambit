@@ -1,6 +1,10 @@
 import { UserCard } from './user-card';
 import UserDashboard from './user-dashboard';
-import { getSession, getSubscription } from '@/app/supabase-server';
+import {
+  getSession,
+  getSubscription,
+  getUserDetails
+} from '@/app/supabase-server';
 import { DashboardHeader } from '@/components/header';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
@@ -13,25 +17,22 @@ export default async function Dashboard() {
 
   const subscription = await getSubscription();
   const session = await getSession();
-  const userId = session?.user.id;
+  const user = await getUserDetails();
   const { data: profile } = await supabase
     .from('profiles')
     .select('username, full_name')
-    .eq('id', userId);
-
-  // user dash
-  // get user
-  // active program?
-  // display profile card
-  // browse programs / view active program card
-  // learn / training knowledge base
+    .eq('id', user?.id);
 
   return (
     <div>
-      <DashboardHeader heading="Home" text="Your training home." />
-      <pre>{JSON.stringify(session, null, 2)}</pre>
-      <pre>{JSON.stringify(subscription?.status, null, 2)}</pre>
-      <UserCard />
+      <div className="pb-2">
+        <DashboardHeader heading="Home" text="Your training home." />
+      </div>
+      {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
+      <UserCard
+        name={user?.full_name || null}
+        email={session?.user.email || ''}
+      />
       <p>Start a training program</p>
       <p>Learn</p>
       <p>Training Resources</p>
