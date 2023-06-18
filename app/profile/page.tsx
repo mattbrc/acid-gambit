@@ -4,7 +4,7 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
-export default async function Training() {
+export default async function Profile() {
   const supabase = createServerComponentClient({
     cookies
   });
@@ -20,7 +20,10 @@ export default async function Training() {
   return (
     <div>
       <div className="pb-2">
-        <DashboardHeader heading="Training" text="Start/View your programs." />
+        <DashboardHeader
+          heading="Profile"
+          text="Edit your profile and settings."
+        />
       </div>
     </div>
   );

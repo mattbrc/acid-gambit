@@ -1,19 +1,14 @@
 import { getSession, getUserDetails } from '../supabase-server';
 import { MainNav } from '@/components/main-nav';
-import SignOutButton from '@/components/sign-out-button';
 import { SiteFooter } from '@/components/site-footer';
 import { UserNav } from '@/components/user-nav';
 import { redirect } from 'next/navigation';
-
-// import { UserAccountNav } from "@/components/user-account-nav";
-// import { DashboardNav } from "@/components/nav";
-// import { dashboardConfig } from "@/config/dashboard";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
 }
 
-export default async function DashboardLayout({
+export default async function ProfileLayout({
   children
 }: DashboardLayoutProps) {
   const session = await getSession();

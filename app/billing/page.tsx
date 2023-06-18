@@ -64,6 +64,11 @@ export default async function Billing() {
             )}
           </BillingCard>
         </div>
+        <Card>
+          <CardHeader>
+            <CardTitle>Pricing Plans</CardTitle>
+          </CardHeader>
+        </Card>
       </div>
     </DashboardShell>
   );

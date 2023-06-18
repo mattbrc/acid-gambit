@@ -5,6 +5,7 @@ import { SiteFooter } from '@/components/site-footer';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { Badge } from '@/components/ui/badge';
 
 export default async function IndexPage() {
   return (
@@ -139,12 +140,12 @@ export default async function IndexPage() {
               Unlock all features including unlimited workouts.
             </p>
           </div>
-          <div className="grid w-full items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]">
+          <div className="grid w-full items-start gap-10 rounded-lg border-2 border-emerald-400 p-10 md:grid-cols-[1fr_200px]">
             <div className="grid gap-6">
               <h3 className="text-xl font-bold sm:text-2xl">Pro Annual</h3>
               <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
                 <li className="flex items-center">
-                  <Icons.check className="w-4 h-4 mr-2" /> Save 17% with Annual
+                  <Icons.check className="w-4 h-4 mr-2" /> Save 50% with Annual
                 </li>
                 <li className="flex items-center">
                   <Icons.check className="w-4 h-4 mr-2" /> Unlimited Program
@@ -169,9 +170,9 @@ export default async function IndexPage() {
             </div>
             <div className="flex flex-col gap-4 text-center">
               <div>
-                <h4 className="font-bold text-7xl">$100</h4>
+                <h4 className="text-4xl font-bold">$10/mo</h4>
                 <p className="text-sm font-medium text-muted-foreground">
-                  $0.27 Per Day. Billed Annually. Cancel Anytime.
+                  $120 billed every year.
                 </p>
               </div>
               <Link
@@ -182,11 +183,9 @@ export default async function IndexPage() {
               </Link>
             </div>
           </div>
-          <div className="grid w-full items-start gap-10 rounded-lg border-2 border-emerald-400 p-10 md:grid-cols-[1fr_200px]">
+          <div className="grid w-full items-start gap-10 rounded-lg border p-10 md:grid-cols-[1fr_200px]">
             <div className="grid gap-6">
-              <h3 className="text-xl font-bold sm:text-2xl">
-                What&apos;s included in the PRO plan
-              </h3>
+              <h3 className="text-xl font-bold sm:text-2xl">Pro Monthly</h3>
               <ul className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
                 <li className="flex items-center">
                   <Icons.check className="w-4 h-4 mr-2" /> Unlimited Program
@@ -211,9 +210,9 @@ export default async function IndexPage() {
             </div>
             <div className="flex flex-col gap-4 text-center">
               <div>
-                <h4 className="font-bold text-7xl">$10</h4>
+                <h4 className="text-4xl font-bold">$19/mo</h4>
                 <p className="text-sm font-medium text-muted-foreground">
-                  $0.33 Per Day. Billed Monthly. Cancel Anytime.
+                  $19 billed monthly. Cancel anytime.
                 </p>
               </div>
               <Link
@@ -248,7 +247,7 @@ export default async function IndexPage() {
             </div>
             <div className="flex flex-col gap-4 text-center">
               <div>
-                <h4 className="font-bold text-7xl">$0</h4>
+                <h4 className="text-4xl font-bold">$0</h4>
                 <p className="text-sm font-medium text-muted-foreground">
                   Free!
                 </p>
