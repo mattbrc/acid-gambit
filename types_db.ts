@@ -31,24 +31,6 @@ export interface Database {
           }
         ]
       }
-      gated_content: {
-        Row: {
-          created_at: string | null
-          id: number
-          workout: string | null
-        }
-        Insert: {
-          created_at?: string | null
-          id?: number
-          workout?: string | null
-        }
-        Update: {
-          created_at?: string | null
-          id?: number
-          workout?: string | null
-        }
-        Relationships: []
-      }
       prices: {
         Row: {
           active: boolean | null
@@ -125,6 +107,27 @@ export interface Database {
         }
         Relationships: []
       }
+      programs: {
+        Row: {
+          created_at: string | null
+          id: number
+          program_description: string | null
+          program_name: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: number
+          program_description?: string | null
+          program_name?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: number
+          program_description?: string | null
+          program_name?: string | null
+        }
+        Relationships: []
+      }
       subscriptions: {
         Row: {
           cancel_at: string | null
@@ -192,6 +195,80 @@ export interface Database {
           }
         ]
       }
+      user_completed_workouts: {
+        Row: {
+          created_at: string | null
+          id: number
+          program_name: string | null
+          training: Json | null
+          training_id: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id: number
+          program_name?: string | null
+          training?: Json | null
+          training_id?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: number
+          program_name?: string | null
+          training?: Json | null
+          training_id?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_completed_workouts_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      user_training: {
+        Row: {
+          active_program: number | null
+          completed_workouts: string | null
+          created_at: string | null
+          id: string
+          next_workout: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          active_program?: number | null
+          completed_workouts?: string | null
+          created_at?: string | null
+          id: string
+          next_workout?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          active_program?: number | null
+          completed_workouts?: string | null
+          created_at?: string | null
+          id?: string
+          next_workout?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_training_active_program_fkey"
+            columns: ["active_program"]
+            referencedRelation: "programs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_training_id_fkey"
+            columns: ["id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       users: {
         Row: {
           avatar_url: string | null
@@ -222,6 +299,70 @@ export interface Database {
             foreignKeyName: "users_id_fkey"
             columns: ["id"]
             referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      wods: {
+        Row: {
+          created_at: string | null
+          date: string | null
+          description: string | null
+          id: number
+          notes: string | null
+          title: string | null
+          workout: Json | null
+        }
+        Insert: {
+          created_at?: string | null
+          date?: string | null
+          description?: string | null
+          id?: number
+          notes?: string | null
+          title?: string | null
+          workout?: Json | null
+        }
+        Update: {
+          created_at?: string | null
+          date?: string | null
+          description?: string | null
+          id?: number
+          notes?: string | null
+          title?: string | null
+          workout?: Json | null
+        }
+        Relationships: []
+      }
+      workouts: {
+        Row: {
+          created_at: string | null
+          id: number
+          name: string | null
+          program_id: number | null
+          training: Json | null
+          training_id: number | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: number
+          name?: string | null
+          program_id?: number | null
+          training?: Json | null
+          training_id?: number | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: number
+          name?: string | null
+          program_id?: number | null
+          training?: Json | null
+          training_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "workouts_program_id_fkey"
+            columns: ["program_id"]
+            referencedRelation: "programs"
             referencedColumns: ["id"]
           }
         ]

@@ -10,6 +10,10 @@ export default async function Training() {
   });
 
   const subscription = await getSubscription();
+  // if (subscription.status !== 'active') {
+  //   return redirect('/billing');
+  // }
+
   const session = await getSession();
   const userId = session?.user.id;
   const { data: profile } = await supabase

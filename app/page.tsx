@@ -2,10 +2,10 @@ import { Icons } from '@/components/icons';
 import { MainNav } from '@/components/main-nav';
 // import { MainNav } from "@/components/main-nav";
 import { SiteFooter } from '@/components/site-footer';
+import { Badge } from '@/components/ui/badge';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
 
 export default async function IndexPage() {
   return (
