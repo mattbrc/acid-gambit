@@ -18,14 +18,25 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Separator } from '@/components/ui/separator';
 import { Circle, Dumbbell, Star } from 'lucide-react';
+import { Database } from 'types_db';
+
+type Workouts =
+  Database['public']['Tables']['user_training']['Row']['completed_workouts'];
+type Subscription = string | null | undefined;
 
 interface UserCardProps {
   name: string | null;
   email: string;
-  workouts: number;
+  subscription: Subscription;
+  workouts: Workouts;
 }
 
-export function UserCard({ name, email, workouts }: UserCardProps) {
+export function UserCard({
+  name,
+  email,
+  subscription,
+  workouts
+}: UserCardProps) {
   return (
     <div className="pt-2 pb-2">
       <Card>
@@ -36,7 +47,7 @@ export function UserCard({ name, email, workouts }: UserCardProps) {
         </CardHeader>
         <CardContent>
           <div className="flex items-center justify-between space-x-4">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 jutify-content-center">
               <Avatar className="w-8 h-8">
                 <AvatarImage src="/avatars/01.png" alt="@shadcn" />
                 {name !== null ? (
@@ -55,14 +66,14 @@ export function UserCard({ name, email, workouts }: UserCardProps) {
               </div>
             </div>
           </div>
-          <div className="flex space-x-4 text-sm text-muted-foreground">
-            <div className="flex items-center">
+          <div className="text-sm text-muted-foreground">
+            <div className="flex items-center pt-4">
               <Circle className="w-3 h-3 mr-1 fill-emerald-400 text-emerald-400" />
-              Gambit Pro
+              {subscription ? `${subscription} Pro` : 'No Active Subscription'}
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center pt-1">
               <Dumbbell className="w-3 h-3 mr-1" />
-              {workouts} workouts completed
+              {workouts ? workouts : 0} Workouts Completed
             </div>
           </div>
         </CardContent>

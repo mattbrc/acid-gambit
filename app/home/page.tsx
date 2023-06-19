@@ -20,10 +20,11 @@ export default async function Dashboard() {
   const subscription = await getSubscription();
   const session = await getSession();
   const user = await getUserDetails();
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('username, full_name, current_program')
-    .eq('id', user?.id);
+  const { data } = await supabase
+    .from('user_training')
+    .select('completed_workouts')
+    .eq('id', user?.id)
+    .single();
 
   return (
     <div>
@@ -34,11 +35,12 @@ export default async function Dashboard() {
       <UserCard
         name={user?.full_name || null}
         email={session?.user.email || ''}
-        workouts={69}
+        subscription={subscription?.prices?.products?.name}
+        workouts={data?.completed_workouts || null}
       />
       <TrainingCard program={user?.current_program || null} />
-      <LearnCard />
       <WodCard />
+      <LearnCard />
     </div>
   );
 }

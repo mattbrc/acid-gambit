@@ -9,9 +9,6 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Icons } from '@/components/icons';
 import Link from 'next/link';
 
 export function WodCard() {
@@ -25,7 +22,7 @@ export function WodCard() {
 
         <CardFooter>
           <Link className="w-full" href="/wod">
-            <Button className="w-full">WOD</Button>
+            <Button className="w-full">View WOD</Button>
           </Link>
         </CardFooter>
       </Card>

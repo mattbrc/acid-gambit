@@ -9,6 +9,64 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
+      completed_workouts: {
+        Row: {
+          id: number
+          metcon_time: unknown | null
+          reps_completed: number | null
+          run_distance: number | null
+          run_pace: unknown | null
+          sets_completed: number | null
+          user_id: string | null
+          weight_lifted: number | null
+          workout_date: string | null
+          workout_id: number | null
+          workout_name: string | null
+          workout_type: Database["public"]["Enums"]["workout_type"] | null
+        }
+        Insert: {
+          id?: number
+          metcon_time?: unknown | null
+          reps_completed?: number | null
+          run_distance?: number | null
+          run_pace?: unknown | null
+          sets_completed?: number | null
+          user_id?: string | null
+          weight_lifted?: number | null
+          workout_date?: string | null
+          workout_id?: number | null
+          workout_name?: string | null
+          workout_type?: Database["public"]["Enums"]["workout_type"] | null
+        }
+        Update: {
+          id?: number
+          metcon_time?: unknown | null
+          reps_completed?: number | null
+          run_distance?: number | null
+          run_pace?: unknown | null
+          sets_completed?: number | null
+          user_id?: string | null
+          weight_lifted?: number | null
+          workout_date?: string | null
+          workout_id?: number | null
+          workout_name?: string | null
+          workout_type?: Database["public"]["Enums"]["workout_type"] | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "completed_workouts_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "completed_workouts_workout_id_fkey"
+            columns: ["workout_id"]
+            referencedRelation: "workouts"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       customers: {
         Row: {
           id: string
@@ -195,44 +253,10 @@ export interface Database {
           }
         ]
       }
-      user_completed_workouts: {
-        Row: {
-          created_at: string | null
-          id: number
-          program_name: string | null
-          training: Json | null
-          training_id: string | null
-          user_id: string | null
-        }
-        Insert: {
-          created_at?: string | null
-          id: number
-          program_name?: string | null
-          training?: Json | null
-          training_id?: string | null
-          user_id?: string | null
-        }
-        Update: {
-          created_at?: string | null
-          id?: number
-          program_name?: string | null
-          training?: Json | null
-          training_id?: string | null
-          user_id?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "user_completed_workouts_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
       user_training: {
         Row: {
           active_program: number | null
-          completed_workouts: string | null
+          completed_workouts: number | null
           created_at: string | null
           id: string
           next_workout: string | null
@@ -240,7 +264,7 @@ export interface Database {
         }
         Insert: {
           active_program?: number | null
-          completed_workouts?: string | null
+          completed_workouts?: number | null
           created_at?: string | null
           id: string
           next_workout?: string | null
@@ -248,7 +272,7 @@ export interface Database {
         }
         Update: {
           active_program?: number | null
-          completed_workouts?: string | null
+          completed_workouts?: number | null
           created_at?: string | null
           id?: string
           next_workout?: string | null
@@ -386,6 +410,7 @@ export interface Database {
         | "past_due"
         | "unpaid"
         | "paused"
+      workout_type: "weights" | "runs" | "metcons"
     }
     CompositeTypes: {
       [_ in never]: never
