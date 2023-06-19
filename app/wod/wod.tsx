@@ -15,13 +15,21 @@ import { format } from 'path';
 import { useEffect, useState } from 'react';
 import { Database } from 'types_db';
 
-type Workout = Database['public']['Tables']['wods']['Row'];
+type WorkoutData = {
+  workout: Database['public']['Tables']['wods']['Row']['workout'];
+  title: Database['public']['Tables']['wods']['Row']['title'];
+  notes: Database['public']['Tables']['wods']['Row']['notes'];
+};
+// type Workout = Database['public']['Tables']['wods']['Row']['workout'];
+// type WorkoutTitle = Database['public']['Tables']['wods']['Row']['title'];
+// type WorkoutNotes = Database['public']['Tables']['wods']['Row']['notes'];
+
 interface Props {
   date: String | null;
-  workoutData: Workout | null;
+  workoutDetails: WorkoutData | null;
 }
 
-export function WorkoutOfTheDay({ date, workoutData }: Props) {
+export function WorkoutOfTheDay({ date, workoutDetails }: Props) {
   const today = new Date();
   const formattedDate = `${today.getFullYear()}-${String(
     today.getMonth() + 1
@@ -32,7 +40,7 @@ export function WorkoutOfTheDay({ date, workoutData }: Props) {
     b: '20 devils press'
   };
 
-  if (workoutData === null) {
+  if (workoutDetails === null) {
     return (
       <Card>
         <CardHeader>
@@ -72,14 +80,14 @@ export function WorkoutOfTheDay({ date, workoutData }: Props) {
       <CardContent className="grid gap-6">
         <div className="flex items-center justify-between space-x-2">
           <Label htmlFor="necessary" className="flex flex-col space-y-1">
-            <span>{workoutData.title}</span>
+            <span>{workoutDetails.title}</span>
             <span className="font-normal leading-snug text-muted-foreground">
               <ul>
                 {/* <li>100m shuttle run (50m down and back) +</li>
                 <li>20 devils press +</li>
                 <li>20 walking DB lunges</li> */}
-                {workoutData.workout &&
-                  Object.entries(workoutData.workout).map(
+                {workoutDetails.workout &&
+                  Object.entries(workoutDetails.workout).map(
                     ([section, exercise], index) => (
                       <li key={index}>{exercise}</li>
                     )
@@ -87,7 +95,7 @@ export function WorkoutOfTheDay({ date, workoutData }: Props) {
               </ul>
             </span>
             <span className="pt-6 font-normal leading-snug text-muted-foreground">
-              {workoutData.notes}
+              {workoutDetails.notes}
             </span>
           </Label>
         </div>

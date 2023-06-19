@@ -6,8 +6,6 @@ import { getDate } from '@/utils/helpers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
-type Workout = Database['public']['Tables']['wods']['Row'];
-
 export default async function Wod() {
   const supabase = createServerComponentClient({
     cookies
@@ -25,12 +23,18 @@ export default async function Wod() {
     .eq('date', formattedDate)
     .single();
 
+  const workoutDetails = {
+    workout: wod?.workout,
+    title: wod?.title,
+    notes: wod?.notes
+  };
+
   return (
     <div>
       <div className="pb-2">
         <DashboardHeader heading="Workout of the Day" text="Start Training" />
       </div>
-      <WorkoutOfTheDay date={date} workoutData={wod} />
+      <WorkoutOfTheDay date={date} workoutDetails={workoutDetails} />
     </div>
   );
 }
