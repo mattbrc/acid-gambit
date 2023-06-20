@@ -11,11 +11,11 @@ import {
 } from '@/components/ui/card';
 import Link from 'next/link';
 
-interface UserCardProps {
+interface DashboardCardProps {
   program: string | null;
 }
 
-export function TrainingCard({ program }: UserCardProps) {
+export function DashboardCard({ program }: DashboardCardProps) {
   return (
     <div className="pt-2 pb-2">
       <Card>
@@ -26,16 +26,19 @@ export function TrainingCard({ program }: UserCardProps) {
         <CardContent className="grid gap-4">
           <div>
             {program !== null ? (
-              <p>Current Program: {program}</p>
+              <div>
+                <p>Current Program: {program}</p>
+                <p>Today's Workout</p>
+              </div>
             ) : (
-              <p>No current program.</p>
+              <p>No current program. Select one below and start training!</p>
             )}
           </div>
         </CardContent>
         <CardFooter>
-          <Link className="w-full" href="/training">
+          {/* <Link className="w-full" href="/training">
             <Button className="w-full">Training Dashboard</Button>
-          </Link>
+          </Link> */}
         </CardFooter>
       </Card>
     </div>

@@ -7,7 +7,7 @@ import {
   Pizza,
   User
 } from 'lucide-react';
-
+import { RxDiscordLogo } from 'react-icons/rx';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -17,7 +17,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
 import Link from 'next/link';
@@ -95,6 +94,16 @@ export function UserNav({ name, email }: UserNavProps) {
               <span>Billing</span>
             </DropdownMenuItem>
           </Link>
+          <a
+            href="https://discord.gg/c4CMCs7j3F"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <DropdownMenuItem>
+              <RxDiscordLogo className="w-4 h-4 mr-2" />
+              <span>Discord</span>
+            </DropdownMenuItem>
+          </a>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
