@@ -1,5 +1,5 @@
 import { getSession, getUserDetails } from '../supabase-server';
-import { MainNav } from '@/components/main-nav';
+import { HomeNav } from '@/components/main-nav';
 import { SiteFooter } from '@/components/site-footer';
 import { UserNav } from '@/components/user-nav';
 import { redirect } from 'next/navigation';
@@ -22,7 +22,7 @@ export default async function NutritionLayout({
     <div className="flex flex-col min-h-screen space-y-6">
       <header className="sticky top-0 z-40 border-b bg-background">
         <div className="container flex items-center justify-between h-16 py-4">
-          <MainNav />
+          <HomeNav />
           <UserNav
             name={user?.full_name || null}
             email={session?.user.email || ''}

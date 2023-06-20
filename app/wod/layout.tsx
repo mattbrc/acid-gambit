@@ -1,13 +1,8 @@
 import { getSession, getUserDetails } from '../supabase-server';
-import { MainNav } from '@/components/main-nav';
-import SignOutButton from '@/components/sign-out-button';
+import { HomeNav } from '@/components/main-nav';
 import { SiteFooter } from '@/components/site-footer';
 import { UserNav } from '@/components/user-nav';
 import { redirect } from 'next/navigation';
-
-// import { UserAccountNav } from "@/components/user-account-nav";
-// import { DashboardNav } from "@/components/nav";
-// import { dashboardConfig } from "@/config/dashboard";
 
 interface DashboardLayoutProps {
   children?: React.ReactNode;
@@ -27,7 +22,7 @@ export default async function DashboardLayout({
     <div className="flex flex-col min-h-screen space-y-6">
       <header className="sticky top-0 z-40 border-b bg-background">
         <div className="container flex items-center justify-between h-16 py-4">
-          <MainNav />
+          <HomeNav />
           <UserNav
             name={user?.full_name || null}
             email={session?.user.email || ''}
@@ -35,9 +30,6 @@ export default async function DashboardLayout({
         </div>
       </header>
       <div className="container grid flex-1">
-        {/* <aside className="hidden w-[200px] flex-col md:flex">
-          <DashboardNav items={dashboardConfig.sidebarNav} />
-        </aside> */}
         <main className="flex flex-col flex-1 w-full overflow-hidden">
           {children}
         </main>
