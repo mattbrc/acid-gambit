@@ -13,15 +13,18 @@ import Link from 'next/link';
 
 interface DashboardCardProps {
   program: string | null;
+  date: string | null;
 }
 
-export function DashboardCard({ program }: DashboardCardProps) {
+export function DashboardCard({ program, date }: DashboardCardProps) {
   return (
     <div className="pt-2 pb-2">
       <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Start a Training Program</CardTitle>
-          <CardDescription>Juh</CardDescription>
+          <CardTitle className="text-2xl">{date}</CardTitle>
+          {/* <CardDescription>
+            Start/Continue your training program.
+          </CardDescription> */}
         </CardHeader>
         <CardContent className="grid gap-4">
           <div>

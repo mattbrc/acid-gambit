@@ -32,12 +32,12 @@ export default async function Dashboard() {
         <DashboardHeader heading="Home" text="Your training home." />
       </div>
       {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
-      <UserCard
+      {/* <UserCard
         name={user?.full_name || null}
         email={session?.user.email || ''}
         subscription={subscription?.prices?.products?.name}
         workouts={data?.completed_workouts || null}
-      />
+      /> */}
       <TrainingCard program={user?.current_program || null} />
       <WodCard />
       <LearnCard />

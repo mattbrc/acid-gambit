@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
+import { Circle } from 'lucide-react';
 import Link from 'next/link';
 
 interface UserCardProps {
@@ -20,15 +21,23 @@ export function TrainingCard({ program }: UserCardProps) {
     <div className="pt-2 pb-2">
       <Card>
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Start a Training Program</CardTitle>
-          <CardDescription>Juh</CardDescription>
+          <CardTitle className="text-2xl">Training Dashboard</CardTitle>
+          <CardDescription>
+            Start/Continue your training program.
+          </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div>
             {program !== null ? (
-              <p>Current Program: {program}</p>
+              <div className="flex items-center">
+                <Circle className="w-3 h-3 mr-1 text-emerald-400 fill-emerald-400" />
+                <p>{program}</p>
+              </div>
             ) : (
-              <p>No current program.</p>
+              <div className="flex items-center">
+                <Circle className="w-3 h-3 mr-1 text-red-500 fill-red-500" />
+                <p>No active program</p>
+              </div>
             )}
           </div>
         </CardContent>
