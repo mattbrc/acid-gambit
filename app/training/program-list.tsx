@@ -1,6 +1,7 @@
 'use client';
 
 import { DashboardSubHeader } from '@/components/header';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -54,16 +55,12 @@ const ProgramCard = ({ title, description, type }: ProgramCardProps) => {
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl">{title}</CardTitle>
           <CardDescription>{description}</CardDescription>
-          <CardDescription>{type}</CardDescription>
+          {/* <CardDescription>{type}</CardDescription> */}
+          <div className="flex space-x-2">
+            <Badge variant="secondary">{type}</Badge>
+          </div>
         </CardHeader>
         <CardContent className="grid gap-4"></CardContent>
-        {/* <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Select a Training Program</CardTitle>
-          <CardDescription>So many options!</CardDescription>
-        </CardHeader>
-        <CardContent className="grid gap-4">
-          <Separator />
-        </CardContent> */}
         <CardFooter>
           <Link className="w-full" href="/training">
             <Button className="w-full">Start Program</Button>

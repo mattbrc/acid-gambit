@@ -40,10 +40,9 @@ export default async function Training() {
               <ProgramList programs={programs} />
             ) : (
               <div>
-                <p>no programs</p>
+                <p>Error. No programs available.</p>
               </div>
             )}
-            <pre>{JSON.stringify(programs, null, 2)}</pre>
           </div>
         )}
       </div>

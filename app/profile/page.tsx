@@ -1,8 +1,8 @@
 import { getSession, getSubscription } from '@/app/supabase-server';
 import { DashboardHeader } from '@/components/header';
+import { Separator } from '@/components/ui/separator';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 
 export default async function Profile() {
   const supabase = createServerComponentClient({
