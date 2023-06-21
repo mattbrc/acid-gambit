@@ -4,7 +4,6 @@ import UserAuthForm from '@/components/user-auth-form';
 import { cn } from '@/lib/utils';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Metadata } from 'next';
-import Head from 'next/head';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -27,13 +26,6 @@ export default async function LoginPage() {
 
   return (
     <div className="container flex flex-col items-center justify-center w-screen h-screen">
-      <Head>
-        <title>Gambit Login Page</title>
-        <meta
-          name="viewport"
-          content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-      </Head>
       <Link
         href="/"
         className={cn(

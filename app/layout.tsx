@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { Inter as FontSans } from 'next/font/google';
 import localFont from 'next/font/local';
+import Head from 'next/head';
 
 // import { PropsWithChildren } from 'react';
 
@@ -62,6 +63,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
+      </Head>
       <body
         className={cn(
           'bg-background font-sans antialiased min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]',
