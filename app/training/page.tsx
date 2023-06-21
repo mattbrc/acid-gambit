@@ -6,13 +6,13 @@ import {
   getUserDetails
 } from '@/app/supabase-server';
 import { DashboardHeader } from '@/components/header';
+import { Database } from '@/types_db';
 import { getDate } from '@/utils/helpers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 
 export default async function Training() {
-  const supabase = createServerComponentClient({
+  const supabase = createServerComponentClient<Database>({
     cookies
   });
 
@@ -29,18 +29,20 @@ export default async function Training() {
     <div>
       <div className="pb-2">
         <DashboardHeader heading="Training" text="Start/View your programs." />
-        <DashboardCard
-          programs={programs}
-          program={user?.current_program || null}
-          date={date}
-        />
+        <DashboardCard program={user?.current_program || null} date={date} />
         {currentProgram ? (
           <div>
             <p>active program</p>
           </div>
         ) : (
           <div>
-            <ProgramList />
+            {programs ? (
+              <ProgramList programs={programs} />
+            ) : (
+              <div>
+                <p>no programs</p>
+              </div>
+            )}
             <pre>{JSON.stringify(programs, null, 2)}</pre>
           </div>
         )}

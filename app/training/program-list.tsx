@@ -14,10 +14,10 @@ import { Separator } from '@/components/ui/separator';
 import { Database } from '@/types_db';
 import Link from 'next/link';
 
-type ProgramData = Database['public']['Tables']['programs']['Row'];
+type Program = Database['public']['Tables']['programs']['Row'];
 
 interface ProgramListProps {
-  programs: ProgramData[];
+  programs: Program[];
 }
 
 export function ProgramList({ programs }: ProgramListProps) {
@@ -28,7 +28,7 @@ export function ProgramList({ programs }: ProgramListProps) {
         text="So many options!"
       />
       <div>
-        {programs.map((program, index) => (
+        {programs?.map((program, index) => (
           <ProgramCard
             key={index}
             title={program.program_name}
