@@ -171,18 +171,21 @@ export interface Database {
           id: number
           program_description: string | null
           program_name: string | null
+          program_type: Database["public"]["Enums"]["program_type"] | null
         }
         Insert: {
           created_at?: string | null
           id?: number
           program_description?: string | null
           program_name?: string | null
+          program_type?: Database["public"]["Enums"]["program_type"] | null
         }
         Update: {
           created_at?: string | null
           id?: number
           program_description?: string | null
           program_name?: string | null
+          program_type?: Database["public"]["Enums"]["program_type"] | null
         }
         Relationships: []
       }
@@ -401,6 +404,14 @@ export interface Database {
     Enums: {
       pricing_plan_interval: "day" | "week" | "month" | "year"
       pricing_type: "one_time" | "recurring"
+      program_type:
+        | "beginner friendly"
+        | "intermediate"
+        | "advanced"
+        | "conditioning"
+        | "hybrid"
+        | "strength"
+        | "hypertrophy"
       subscription_status:
         | "trialing"
         | "active"

@@ -2,6 +2,7 @@ import './globals.css';
 import SupabaseProvider from './supabase-provider';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
+import { Analytics } from '@vercel/analytics/react';
 import { Inter as FontSans } from 'next/font/google';
 import localFont from 'next/font/local';
 import Head from 'next/head';
@@ -78,6 +79,7 @@ export default function RootLayout({
       >
         <SupabaseProvider>
           {children}
+          <Analytics />
           <Toaster />
         </SupabaseProvider>
       </body>

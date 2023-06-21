@@ -23,22 +23,26 @@ export default async function Training() {
   const userId = session?.user.id;
   const date = await getDate();
 
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('username, full_name')
-    .eq('id', userId);
+  const { data: programs } = await supabase.from('programs').select('*');
 
   return (
     <div>
       <div className="pb-2">
         <DashboardHeader heading="Training" text="Start/View your programs." />
-        <DashboardCard program={user?.current_program || null} date={date} />
+        <DashboardCard
+          programs={programs}
+          program={user?.current_program || null}
+          date={date}
+        />
         {currentProgram ? (
           <div>
             <p>active program</p>
           </div>
         ) : (
-          <ProgramList />
+          <div>
+            <ProgramList />
+            <pre>{JSON.stringify(programs, null, 2)}</pre>
+          </div>
         )}
       </div>
     </div>
