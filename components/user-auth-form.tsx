@@ -36,11 +36,20 @@ export default function UserAuthForm({
   const router = useRouter();
   const supabase = createClientComponentClient();
 
+  // const signInWithGoogle = async () => {
+  //   await supabase.auth.signInWithOAuth({
+  //     provider: 'google',
+  //     options: {
+  //       redirectTo: `${location.origin}/auth/callback`
+  //     }
+  //   });
+  // };
+
   const signInWithGoogle = async () => {
     await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: `${location.origin}/auth/callback`
+        redirectTo: `${process.env.NEXT_PUBLIC_REDIRECT_URL}/auth/callback`
       }
     });
   };

@@ -20,7 +20,8 @@ export function LearnCard() {
           <CardTitle className="text-2xl">Training Resourses</CardTitle>
           <CardDescription>
             Everything to get you started, answer questions, and get you
-            involved in the community. For technical support, head to Discord.
+            involved in the community. For general/training questions or
+            technical support head to Discord.
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-6">
