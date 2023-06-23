@@ -88,7 +88,7 @@ export function UserProfileForm({
       });
     }
     toast({
-      description: 'Your profile has been updated.'
+      description: '✅ Your profile has been updated.'
     });
 
     router.refresh();
@@ -132,17 +132,20 @@ export function UserProfileForm({
                 placeholder="batman69"
                 {...register('username')}
               />
-              {user?.username ? (
-                <Link className="text-underline" href={'/' + user.username}>
-                  <p className="text-sm text-muted-foreground">
-                    app.acidgambit.com/{user.username}
+              {/* {user?.username ? (
+                <Link href={'/u/' + user.username}>
+                  <p className="text-sm underline text-muted-foreground">
+                    app.acidgambit.com/u/{user.username}
                   </p>
                 </Link>
               ) : (
                 <p className="text-sm text-muted-foreground">
                   app.acidgambit.com/username
                 </p>
-              )}
+              )} */}
+              <p className="text-sm text-muted-foreground">
+                Set your username.
+              </p>
               {errors?.username && (
                 <p className="px-1 text-xs text-red-600">
                   {errors.username.message}
