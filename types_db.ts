@@ -300,26 +300,32 @@ export interface Database {
         Row: {
           avatar_url: string | null
           billing_address: Json | null
+          bio: string | null
           current_program: string | null
           full_name: string | null
           id: string
           payment_method: Json | null
+          username: string | null
         }
         Insert: {
           avatar_url?: string | null
           billing_address?: Json | null
+          bio?: string | null
           current_program?: string | null
           full_name?: string | null
           id: string
           payment_method?: Json | null
+          username?: string | null
         }
         Update: {
           avatar_url?: string | null
           billing_address?: Json | null
+          bio?: string | null
           current_program?: string | null
           full_name?: string | null
           id?: string
           payment_method?: Json | null
+          username?: string | null
         }
         Relationships: [
           {

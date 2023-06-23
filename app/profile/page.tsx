@@ -1,22 +1,15 @@
-import { getSession, getSubscription } from '@/app/supabase-server';
+import {
+  getSession,
+  getSubscription,
+  getUserDetails
+} from '@/app/supabase-server';
 import { DashboardHeader } from '@/components/header';
-import { Separator } from '@/components/ui/separator';
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
+import { UserProfileForm } from './user-profile-form';
 
 export default async function Profile() {
-  const supabase = createServerComponentClient({
-    cookies
-  });
-
   const subscription = await getSubscription();
   const session = await getSession();
-  const userId = session?.user.id;
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('username, full_name')
-    .eq('id', userId);
-
+  const user = await getUserDetails();
   return (
     <div>
       <div className="pb-2">
@@ -24,6 +17,7 @@ export default async function Profile() {
           heading="Profile"
           text="Edit your profile and settings."
         />
+        <UserProfileForm user={user} />
       </div>
     </div>
   );
