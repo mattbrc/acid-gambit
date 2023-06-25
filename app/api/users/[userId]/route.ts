@@ -25,8 +25,7 @@ export async function PATCH(
     // Validate the route context.
     const { params } = routeContextSchema.parse(context)
 
-
-    // Ensure user is authentication and has access to this user.
+    // Ensure user is authenticated and has access to this user.
     if (!session?.user || params.userId !== session.user?.id) {
       return new Response(null, { status: 403 })
     }

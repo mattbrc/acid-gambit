@@ -171,6 +171,7 @@ export interface Database {
           id: number
           program_description: string | null
           program_name: string | null
+          program_slug: string | null
           program_type: Database["public"]["Enums"]["program_type"] | null
         }
         Insert: {
@@ -178,6 +179,7 @@ export interface Database {
           id?: number
           program_description?: string | null
           program_name?: string | null
+          program_slug?: string | null
           program_type?: Database["public"]["Enums"]["program_type"] | null
         }
         Update: {
@@ -185,6 +187,7 @@ export interface Database {
           id?: number
           program_description?: string | null
           program_name?: string | null
+          program_slug?: string | null
           program_type?: Database["public"]["Enums"]["program_type"] | null
         }
         Relationships: []

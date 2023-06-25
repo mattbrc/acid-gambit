@@ -9,22 +9,13 @@ import * as z from 'zod';
 import { cn } from '@/lib/utils';
 import { profileSchema } from '@/lib/validations/user';
 import { buttonVariants } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle
-} from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from '@/components/ui/use-toast';
 import { Icons } from '@/components/icons';
 import { Database } from '@/types_db';
 import { Textarea } from '@/components/ui/textarea';
-import { Separator } from '@/components/ui/separator';
-import Link from 'next/link';
 
 type User = Database['public']['Tables']['users']['Row'];
 
