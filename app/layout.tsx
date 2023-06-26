@@ -64,12 +64,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-      </Head>
       <body
         className={cn(
           'bg-background font-sans antialiased min-h-[calc(100dvh-4rem)] md:min-h[calc(100dvh-5rem)]',
@@ -78,6 +72,12 @@ export default function RootLayout({
         )}
       >
         <SupabaseProvider>
+          <Head>
+            <meta
+              name="viewport"
+              content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+            />
+          </Head>
           {children}
           <Analytics />
           <Toaster />
