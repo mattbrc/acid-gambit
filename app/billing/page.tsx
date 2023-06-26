@@ -1,9 +1,10 @@
 import {
+  getActiveProductsWithPrices,
   getSession,
   getSubscription,
   getUserDetails
 } from '@/app/supabase-server';
-import { DashboardHeader } from '@/components/header';
+import { DashboardHeader, DashboardSubHeader } from '@/components/header';
 import { DashboardShell } from '@/components/shell';
 import { redirect } from 'next/navigation';
 import { ReactNode } from 'react';
@@ -18,15 +19,16 @@ import {
   CardTitle
 } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { Icons } from '@/components/icons';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { Pricing } from './pricing';
 
 export default async function Billing() {
-  const [session, userDetails, subscription] = await Promise.all([
+  const [session, products, subscription] = await Promise.all([
     getSession(),
-    getUserDetails(),
+    getActiveProductsWithPrices(),
     getSubscription()
   ]);
-
-  const user = session?.user;
 
   if (!session) {
     return redirect('/login');
@@ -60,15 +62,24 @@ export default async function Billing() {
             {subscription ? (
               `${subscriptionPrice}/${subscription?.prices?.interval}`
             ) : (
-              <Link href="/">Choose your plan</Link>
+              <p>Choose your plan</p>
             )}
           </BillingCard>
         </div>
-        <Card>
+        {/* <Card>
           <CardHeader>
             <CardTitle>Pricing Plans</CardTitle>
           </CardHeader>
-        </Card>
+        </Card> */}
+        <DashboardSubHeader
+          heading="Choose your plan"
+          text="Annual and monthly options."
+        />
+        <Pricing
+          user={session?.user}
+          products={products}
+          subscription={subscription}
+        />
       </div>
     </DashboardShell>
   );

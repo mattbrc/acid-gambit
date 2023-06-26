@@ -10,10 +10,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
-// export const metadata: Metadata = {
-//   title: 'Login',
-//   description: 'Login to your account'
-// };
+export const metadata: Metadata = {
+  title: 'Login',
+  description: 'Login to the Gambit Training App'
+};
 
 export default async function LoginPage() {
   const supabase = createServerComponentClient({ cookies });
