@@ -46,8 +46,8 @@ export default async function Training() {
     <div>
       <div className="pb-2">
         <DashboardHeader heading="Training" text="Start/View your programs." />
-        {/* <DashboardCard program={program?.programs.program_name} date={date} /> */}
-        <pre>{JSON.stringify(program, null, 2)}</pre>
+        <DashboardCard program="a program" date={date} />
+        <pre>{JSON.stringify(program?.programs?.program_name, null, 2)}</pre>
         {program ? (
           <div>
             <p>active program</p>
