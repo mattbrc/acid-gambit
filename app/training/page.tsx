@@ -22,19 +22,28 @@ export default async function Training() {
   const userId = session?.user.id;
   const date = await getDate();
 
-  const { data: programs } = await supabase.from('programs').select('*');
+  const { data: programs } = await supabase
+    .from('programs')
+    .select('*')
+    .order('id', { ascending: true });
 
   // fetch user's active program and program name from relation
-  const { data: program, error } = await supabase
+  // const { data: program, error } = await supabase
+  //   .from('user_training')
+  //   .select(
+  //     `
+  //   active_program,
+  //   programs:active_program (
+  //     program_name
+  //   )
+  // `
+  //   )
+  //   .eq('id', userId)
+  //   .single();
+
+  const { data: activeProgram, error } = await supabase
     .from('user_training')
-    .select(
-      `
-    active_program,
-    programs:active_program (
-      program_name
-    )
-  `
-    )
+    .select('*')
     .eq('id', userId)
     .single();
 
@@ -46,23 +55,16 @@ export default async function Training() {
     <div>
       <div className="pb-2">
         <DashboardHeader heading="Training" text="Start/View your programs." />
-        <DashboardCard program="a program" date={date} />
-        <pre>{JSON.stringify(program?.programs?.program_name, null, 2)}</pre>
-        {program ? (
-          <div>
-            <p>active program</p>
-          </div>
-        ) : (
-          <div>
-            {programs ? (
-              <ProgramList programs={programs} id={userId} />
-            ) : (
-              <div>
-                <p>Error. No programs available.</p>
-              </div>
-            )}
-          </div>
-        )}
+        <DashboardCard program={activeProgram!} date={date} />
+        <div>
+          {programs ? (
+            <ProgramList programs={programs} id={userId} />
+          ) : (
+            <div>
+              <p>Error. No programs available.</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

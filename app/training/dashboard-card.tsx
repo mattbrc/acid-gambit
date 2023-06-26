@@ -9,10 +9,12 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card';
+import { Database } from '@/types_db';
 import Link from 'next/link';
 
+type Program = Database['public']['Tables']['user_training']['Row'];
 interface DashboardCardProps {
-  program: string | null;
+  program: Program;
   date: string | null;
 }
 
@@ -30,7 +32,7 @@ export function DashboardCard({ program, date }: DashboardCardProps) {
           <div>
             {program !== null ? (
               <div>
-                <p>Current Program: {program}</p>
+                <p>Current Program: {program.active_program_name}</p>
                 <p>Today's Workout</p>
               </div>
             ) : (

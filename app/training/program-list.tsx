@@ -50,14 +50,14 @@ const ProgramCard = ({ id, program, className }: ProgramCardProps) => {
   const router = useRouter();
   const [isSaving, setIsSaving] = React.useState<boolean>(false);
 
-  const handleNewProgram = async (programId: number) => {
+  const handleNewProgram = async (programId: number, programName: string) => {
     setIsSaving(true);
     const response = await fetch('/api/update-program', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ id, programId })
+      body: JSON.stringify({ id, programId, programName })
     });
 
     let responseData: { error?: string } = {};
@@ -110,7 +110,8 @@ const ProgramCard = ({ id, program, className }: ProgramCardProps) => {
           <Link className="w-full" href="/training">
             <Button
               onClick={() => {
-                if (program.id) handleNewProgram(program.id);
+                if (program.id && program.program_name)
+                  handleNewProgram(program.id, program.program_name);
               }}
               className={cn(buttonVariants(), className)}
               disabled={isSaving}

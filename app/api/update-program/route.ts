@@ -14,12 +14,12 @@ export async function POST(req: Request) {
       return new Response("Unauthorized", { status: 403 })
     }
 
-    const { id, programId } = await req.json()
+    const { id, programId, programName } = await req.json()
 
     // upsert DB
     const { data, error } = await supabase
     .from('user_training')
-    .upsert({ id: id, active_program: programId })
+    .upsert({ id: id, active_program: programId, active_program_name: programName })
 
     return new Response(null, { status: 200 })
   } catch (error) {

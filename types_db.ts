@@ -262,27 +262,27 @@ export interface Database {
       user_training: {
         Row: {
           active_program: number | null
+          active_program_name: string | null
           completed_workouts: number | null
-          created_at: string | null
+          created_at: string
           id: string
-          next_workout: string | null
-          updated_at: string | null
+          updated_at: string
         }
         Insert: {
           active_program?: number | null
+          active_program_name?: string | null
           completed_workouts?: number | null
-          created_at?: string | null
+          created_at?: string
           id: string
-          next_workout?: string | null
-          updated_at?: string | null
+          updated_at?: string
         }
         Update: {
           active_program?: number | null
+          active_program_name?: string | null
           completed_workouts?: number | null
-          created_at?: string | null
+          created_at?: string
           id?: string
-          next_workout?: string | null
-          updated_at?: string | null
+          updated_at?: string
         }
         Relationships: [
           {
@@ -304,7 +304,6 @@ export interface Database {
           avatar_url: string | null
           billing_address: Json | null
           bio: string | null
-          current_program: string | null
           full_name: string | null
           id: string
           payment_method: Json | null
@@ -314,7 +313,6 @@ export interface Database {
           avatar_url?: string | null
           billing_address?: Json | null
           bio?: string | null
-          current_program?: string | null
           full_name?: string | null
           id: string
           payment_method?: Json | null
@@ -324,7 +322,6 @@ export interface Database {
           avatar_url?: string | null
           billing_address?: Json | null
           bio?: string | null
-          current_program?: string | null
           full_name?: string | null
           id?: string
           payment_method?: Json | null
