@@ -149,7 +149,7 @@ export function UserProfileForm({
               <Label htmlFor="bio">Bio</Label>
               <Textarea
                 placeholder="Back in '82 I could throw a pigskin a quarter mile"
-                className="resize-none"
+                className="text-base resize-none"
                 id="bio"
                 {...register('bio')}
               />

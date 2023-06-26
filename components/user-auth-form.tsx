@@ -11,7 +11,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useSearchParams } from 'next/navigation';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
@@ -35,15 +34,6 @@ export default function UserAuthForm({
   const [isGoogleLoading, setIsGoogleLoading] = React.useState<boolean>(false);
   const router = useRouter();
   const supabase = createClientComponentClient();
-
-  // const signInWithGoogle = async () => {
-  //   await supabase.auth.signInWithOAuth({
-  //     provider: 'google',
-  //     options: {
-  //       redirectTo: `${location.origin}/auth/callback`
-  //     }
-  //   });
-  // };
 
   const signInWithGoogle = async () => {
     await supabase.auth.signInWithOAuth({
