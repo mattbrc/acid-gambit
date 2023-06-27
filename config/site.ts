@@ -8,6 +8,6 @@ export const siteConfig: SiteConfig = {
   ogImage: "https://tx.shadcn.com/og.jpg",
   links: {
     instagram: "https://instagram.com/acidgambit",
-    github: "https://github.com/shadcn/taxonomy",
+    github: "https://github.com/mattbrc/acid-gambit",
   },
 }

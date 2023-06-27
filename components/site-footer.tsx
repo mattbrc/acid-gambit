@@ -26,7 +26,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             >
               Vercel
             </a>
-            {/* . The source code is available on{" "}
+            . The source code is available on{' '}
             <a
               href={siteConfig.links.github}
               target="_blank"
@@ -34,7 +34,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               className="font-medium underline underline-offset-4"
             >
               GitHub
-            </a> */}
+            </a>
             .
           </p>
         </div>

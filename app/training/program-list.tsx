@@ -107,8 +107,8 @@ const ProgramCard = ({ id, program, className }: ProgramCardProps) => {
         </CardHeader>
         <CardContent className="grid gap-4"></CardContent>
         <CardFooter>
-          <Link className="w-full" href="/training">
-            <Button
+          {/* <Link className="w-full" href="/training"> */}
+          {/* <Button
               onClick={() => {
                 if (program.id && program.program_name)
                   handleNewProgram(program.id, program.program_name);
@@ -117,8 +117,11 @@ const ProgramCard = ({ id, program, className }: ProgramCardProps) => {
               disabled={isSaving}
             >
               Start Program
-            </Button>
-          </Link>
+            </Button> */}
+          <Button className={cn(buttonVariants(), className)} disabled={true}>
+            Coming Soon
+          </Button>
+          {/* </Link> */}
         </CardFooter>
       </Card>
     </div>

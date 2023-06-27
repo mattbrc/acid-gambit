@@ -59,11 +59,11 @@ export default async function Billing() {
             }
             footer={<ManageSubscriptionButton session={session} />}
           >
-            {subscription ? (
+            {/* {subscription ? (
               `${subscriptionPrice}/${subscription?.prices?.interval}`
             ) : (
-              <p>Choose your plan</p>
-            )}
+              <div>Choose your plan</div>
+            )} */}
           </BillingCard>
         </div>
         {/* <Card>
@@ -73,7 +73,7 @@ export default async function Billing() {
         </Card> */}
         <DashboardSubHeader
           heading="Choose your plan"
-          text="Annual and monthly options."
+          text="Annual and monthly options. Tentative pricing. Subject to change."
         />
         <Pricing
           user={session?.user}

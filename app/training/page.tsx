@@ -54,7 +54,10 @@ export default async function Training() {
   return (
     <div>
       <div className="pb-2">
-        <DashboardHeader heading="Training" text="Start/View your programs." />
+        <DashboardHeader
+          heading="Training"
+          text="Start/View your programs. Work in progress."
+        />
         <DashboardCard program={activeProgram!} date={date} />
         <div>
           {programs ? (

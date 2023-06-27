@@ -18,10 +18,10 @@ export default async function Dashboard() {
     cookies
   });
 
-  const [session, userDetails, subscription] = await Promise.all([
+  const [session, userDetails] = await Promise.all([
     getSession(),
-    getUserDetails(),
-    getSubscription()
+    getUserDetails()
+    // getSubscription()
   ]);
 
   const { data: activeProgram, error } = await supabase

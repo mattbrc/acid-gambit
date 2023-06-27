@@ -108,7 +108,7 @@ export function Pricing({ user, products, subscription }: Props) {
               $120 billed every year.
             </p>
           </div>
-          <Button
+          {/* <Button
             type="button"
             onClick={() => handleCheckout(products[7].prices[0])}
             variant={'ag'}
@@ -120,6 +120,9 @@ export function Pricing({ user, products, subscription }: Props) {
             {products[0].name === subscription?.prices?.products?.name
               ? 'Manage'
               : 'Subscribe'}
+          </Button> */}
+          <Button type="button" variant={'ag'} disabled={true}>
+            Coming Soon
           </Button>
         </div>
       </div>
@@ -154,12 +157,22 @@ export function Pricing({ user, products, subscription }: Props) {
               $19 billed monthly. Cancel anytime.
             </p>
           </div>
-          <Link
-            href="/login"
-            className={cn(buttonVariants({ size: 'lg', variant: 'ag' }))}
+          {/* <Button
+            type="button"
+            onClick={() => handleCheckout(products[8].prices[0])}
+            variant={'ag'}
+            disabled={priceIdLoading !== undefined}
           >
-            Subscribe
-          </Link>
+            {priceIdLoading && (
+              <Icons.spinner className="w-4 h-4 mr-2 animate-spin" />
+            )}
+            {products[0].name === subscription?.prices?.products?.name
+              ? 'Manage'
+              : 'Subscribe'}
+          </Button> */}
+          <Button type="button" variant={'ag'} disabled={true}>
+            Coming Soon
+          </Button>
         </div>
       </div>
       {/* <pre>{JSON.stringify(products[7].prices[0], null, 2)}</pre> */}

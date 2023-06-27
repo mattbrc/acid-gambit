@@ -76,12 +76,12 @@ export function UserNav({ name, email }: UserNavProps) {
               Learn
             </DropdownMenuItem>
           </a>
-          <Link href="/nutrition">
-            <DropdownMenuItem>
-              <Pizza className="w-4 h-4 mr-2" />
-              <span>Nutrition</span>
-            </DropdownMenuItem>
-          </Link>
+          {/* <Link href="/nutrition"> */}
+          <DropdownMenuItem className="text-slate-400">
+            <Pizza className="w-4 h-4 mr-2" />
+            <span>Nutrition</span>
+          </DropdownMenuItem>
+          {/* </Link> */}
           <Link href="/profile">
             <DropdownMenuItem>
               <User className="w-4 h-4 mr-2" />
