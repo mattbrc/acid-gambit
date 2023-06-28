@@ -8,11 +8,20 @@ Gambit is an open-source application to effortlessly train on top tier programmi
 
 ## Tech Stack
 
-- [Next.js](https://nextjs.org/) – framework
+- [Next 13 App Dir](https://nextjs.org/) – framework
 - [Tailwind](https://tailwindcss.com/) – CSS
 - [Supabase](https://supabase.com/) – database
-- [Vercel](https://vercel.com/) – hosting
-- [Resend](https://resend.com/) – emails
+- [Vercel](https://vercel.com/) – hosting + analytics
+- [Upstash](https://upstash.com/blog/upstash-ratelimit) – rate limiting - **TODO**
+
+## Todos
+
+- [] Daily Programming
+- [] Tracking for programming - user completed workouts
+- [] WOD times leaderboards
+- [] Nutrition calculator + myfitnesspal integration
+- [] strava integration
+- [] what else?
 
 ## Features
 
