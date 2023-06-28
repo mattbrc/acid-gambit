@@ -3,7 +3,7 @@ export type Json =
   | number
   | boolean
   | null
-  | { [key: string]: Json }
+  | { [key: string]: Json | undefined }
   | Json[]
 
 export interface Database {
@@ -255,6 +255,43 @@ export interface Database {
             foreignKeyName: "subscriptions_user_id_fkey"
             columns: ["user_id"]
             referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      user_completed_wods: {
+        Row: {
+          id: number
+          time_taken: unknown
+          user_id: string
+          username: string
+          wod_id: number
+        }
+        Insert: {
+          id?: number
+          time_taken: unknown
+          user_id: string
+          username: string
+          wod_id: number
+        }
+        Update: {
+          id?: number
+          time_taken?: unknown
+          user_id?: string
+          username?: string
+          wod_id?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_completed_wods_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "user_completed_wods_wod_id_fkey"
+            columns: ["wod_id"]
+            referencedRelation: "wods"
             referencedColumns: ["id"]
           }
         ]
