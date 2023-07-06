@@ -262,21 +262,24 @@ export interface Database {
       user_completed_wods: {
         Row: {
           id: number
-          time_taken: unknown
+          score: number | null
+          time_taken: unknown | null
           user_id: string
           username: string
           wod_id: number
         }
         Insert: {
           id?: number
-          time_taken: unknown
+          score?: number | null
+          time_taken?: unknown | null
           user_id: string
           username: string
           wod_id: number
         }
         Update: {
           id?: number
-          time_taken?: unknown
+          score?: number | null
+          time_taken?: unknown | null
           user_id?: string
           username?: string
           wod_id?: number
@@ -381,6 +384,7 @@ export interface Database {
           id: number
           notes: string | null
           title: string | null
+          wod_type: Database["public"]["Enums"]["wod_type"] | null
           workout: Json | null
         }
         Insert: {
@@ -390,6 +394,7 @@ export interface Database {
           id?: number
           notes?: string | null
           title?: string | null
+          wod_type?: Database["public"]["Enums"]["wod_type"] | null
           workout?: Json | null
         }
         Update: {
@@ -399,6 +404,7 @@ export interface Database {
           id?: number
           notes?: string | null
           title?: string | null
+          wod_type?: Database["public"]["Enums"]["wod_type"] | null
           workout?: Json | null
         }
         Relationships: []
@@ -464,6 +470,7 @@ export interface Database {
         | "past_due"
         | "unpaid"
         | "paused"
+      wod_type: "time" | "score"
       workout_type: "weights" | "runs" | "metcons"
     }
     CompositeTypes: {

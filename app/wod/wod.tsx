@@ -11,11 +11,18 @@ import {
 import { Label } from '@/components/ui/label';
 import { Database } from 'types_db';
 
-type WorkoutData = {
-  workout: Database['public']['Tables']['wods']['Row']['workout'];
-  title: Database['public']['Tables']['wods']['Row']['title'];
-  notes: Database['public']['Tables']['wods']['Row']['notes'];
-};
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
+} from '@/components/ui/table';
+import { SubmitWodForm } from '@/components/submit-wod-form';
+
+type WorkoutData = Database['public']['Tables']['wods']['Row'];
 
 type WodTime = Database['public']['Tables']['user_completed_wods']['Row'];
 
@@ -89,13 +96,34 @@ export function WorkoutOfTheDay({ date, workoutDetails, wodTimes }: Props) {
             </Label>
           </div>
         </CardContent>
+        {/* <SubmitWodForm /> */}
         <CardFooter>
-          <Button disabled={true} variant="outline" className="w-full">
+          {/* <Button disabled={true} variant="outline" className="w-full">
             View Previous WODs
-          </Button>
+          </Button> */}
         </CardFooter>
       </Card>
-      <pre>{JSON.stringify(wodTimes, null, 2)}</pre>
+
+      {/* <pre>{JSON.stringify(wodTimes, null, 2)}</pre> */}
+      <Table className="mt-4">
+        <TableCaption>Top 10 athletes for today's WOD.</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px]">Day Rank</TableHead>
+            <TableHead>Username</TableHead>
+            <TableHead>Time</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {wodTimes?.slice(0, 10).map((wodTime, index) => (
+            <TableRow key={wodTime.id}>
+              <TableCell className="font-medium">{index + 1}</TableCell>
+              <TableCell>{wodTime.username}</TableCell>
+              <TableCell>{wodTime.time_taken as string}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 }
