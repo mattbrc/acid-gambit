@@ -21,7 +21,6 @@ Gambit is an open-source application to effortlessly train on top tier programmi
 - [] WOD times leaderboards
 - [] Nutrition calculator + myfitnesspal integration
 - [] strava integration
-- [] what else?
 
 ## Features
 

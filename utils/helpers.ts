@@ -64,4 +64,4 @@ export const getDate = async () => {
   let day = weekday[d.getDay()];
   const currentDate = day + ', ' + nameMonth + ' ' + currentDay;
   return currentDate;
-}
+};

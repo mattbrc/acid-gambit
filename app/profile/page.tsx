@@ -10,6 +10,7 @@ export default async function Profile() {
   const subscription = await getSubscription();
   const session = await getSession();
   const user = await getUserDetails();
+
   return (
     <div>
       <div className="pb-2">
