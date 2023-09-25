@@ -3,7 +3,7 @@ import { MainNav } from '@/components/main-nav';
 // import { MainNav } from "@/components/main-nav";
 import { SiteFooter } from '@/components/site-footer';
 import { Badge } from '@/components/ui/badge';
-import { buttonVariants } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -14,7 +14,7 @@ export default async function IndexPage() {
         <div className="flex items-center justify-between h-20 py-6">
           <MainNav />
           <nav>
-            <Link
+            {/* <Link
               href="/login"
               className={cn(
                 buttonVariants({ variant: 'secondary', size: 'sm' }),
@@ -22,7 +22,14 @@ export default async function IndexPage() {
               )}
             >
               Login
-            </Link>
+            </Link> */}
+            <Button
+              className={cn(
+                buttonVariants({ variant: 'secondary', size: 'sm' })
+              )}
+            >
+              Login (coming soon)
+            </Button>
           </nav>
         </div>
       </header>
@@ -45,12 +52,17 @@ export default async function IndexPage() {
               Operations to Airline Pilots.
             </p>
             <div>
-              <Link
+              {/* <Link
                 href="/login"
                 className={cn(buttonVariants({ size: 'lg', variant: 'ag' }))}
               >
                 Start Training
-              </Link>
+              </Link> */}
+              <Button
+                className={cn(buttonVariants({ variant: 'ag', size: 'lg' }))}
+              >
+                Start Training (coming soon)
+              </Button>
             </div>
           </div>
         </section>
@@ -131,7 +143,8 @@ export default async function IndexPage() {
             </div>
           </div>
         </section>
-        <section className="container flex flex-col  gap-6 py-8 md:max-w-[64rem] md:py-12 lg:py-24">
+        {/* Pricing Section */}
+        {/* <section className="container flex flex-col  gap-6 py-8 md:max-w-[64rem] md:py-12 lg:py-24">
           <div className="mx-auto flex w-full flex-col gap-4 md:max-w-[58rem]">
             <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
               Simple, transparent pricing
@@ -260,7 +273,7 @@ export default async function IndexPage() {
               </Link>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
       <SiteFooter />
     </div>
